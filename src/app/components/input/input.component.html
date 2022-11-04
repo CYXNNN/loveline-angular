@@ -1,0 +1,16 @@
+<div class="mb-3" [formGroup]="form">
+  <label [for]="name">{{label}}</label>
+  <div class="input-group">
+    <input
+      [type]="name"
+      [id]="name"
+      class="form-control"
+      [placeholder]="placeholder"
+      [name]="name"
+      [formControlName]="name"
+    />
+  </div>
+
+  <app-input-error [control]="form!.get(name)"></app-input-error>
+
+</div>

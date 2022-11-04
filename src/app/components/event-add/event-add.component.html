@@ -1,0 +1,51 @@
+<div style="padding: 10px;">
+  <h2 class="page-title">Eintrag erfassen</h2>
+
+
+  <label for="files">Dateien auswählen</label>
+  <input class="form-control"
+         type="file"
+         id="files"
+         accept=".jpg,.jpeg,.png,.webp,.mp4"
+         multiple
+         (change)="selectFiles($event)"/>
+  <div style="width: 100%; float: left;">
+    <div *ngFor="let file of fileUrls" style="float: left; margin: 5px;">
+      <ng-container [ngSwitch]="file.type">
+        <video *ngSwitchCase="'video'" height="100" controls>
+          <source src="{{file.blob}}">
+        </video>
+        <img *ngSwitchDefault height="100" src="{{file.blob}}"/>
+
+      </ng-container>
+    </div>
+  </div>
+  <form [formGroup]="form" (submit)="submit()" *ngIf="files">
+    <div class="form-group">
+      <label for="title">Titel</label>
+      <input id="title" class="form-control" type="text" formControlName="title"/>
+    </div>
+    <div class="form-group">
+      <label for="description">Erzähl etwas darüber..</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="date">Datum</label>
+      <input id="date" class="form-control" type="date" formControlName="date"/>
+    </div>
+    <div class="form-group">
+      <label for="type">Typ</label>
+      <select
+        id="type"
+        class="form-control"
+        formControlName="type">
+        <option *ngFor="let enum of eventType | keyvalue" [ngValue]="enum.key">
+          {{ enum.value }}
+        </option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Absenden</button>
+  </form>
+</div>

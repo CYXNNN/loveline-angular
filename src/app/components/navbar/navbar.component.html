@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">JC</a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             routerLink="/timeline"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Timeline
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/event/add">Hinzufügen</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <span *ngIf="loggedIn()">Hallo {{name()}}</span>
+        <a *ngIf="loggedIn()" class="btn btn-outline-success" (click)="logout()">Logout</a>
+        <a *ngIf="!loggedIn()" class="btn btn-outline-success" (click)="open(content)">Login</a>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (submit)="login()">
+
+      <app-input [form]="form" label="Username" name="username" placeholder="Username"></app-input>
+      <app-input [form]="form" label="Password" name="password" placeholder="****"></app-input>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" [disabled]="form.invalid">Login</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
