@@ -14,6 +14,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {TimelineComponent} from './components/timeline/timeline.component';
 import {AuthInterceptor} from './interceptor/auth.interceptor';
 import {SecurePipe} from './pipes/secureimage.pipe';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import {SecurePipe} from './pipes/secureimage.pipe';
     InputErrorComponent,
     InputComponent,
     SecurePipe,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,12 @@ import {SecurePipe} from './pipes/secureimage.pipe';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
