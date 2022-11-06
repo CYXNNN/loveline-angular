@@ -37,10 +37,9 @@ export class SecurePipe implements PipeTransform {
       };
     });
     x.subscribe(next => {
-      debugger;
+      // hahahaa what a cool and clean way to set a background image
       this.el.style.backgroundImage =
         `linear-gradient(to left, rgba(245, 246, 252, 0.72), rgb(255 226 226)), url(${next})`;
-
     })
   }
 }
