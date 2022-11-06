@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://cyxn.vodka:1331/api/v1',
+  api: 'http://localohst:8080/api/v1',
 };
 
 /*
