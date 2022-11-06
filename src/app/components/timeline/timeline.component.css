@@ -59,7 +59,7 @@
   content: '';
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid #ffe2e2;
+  border-right: 10px solid #ffaebe;
   position: absolute;
   margin-left: -10px;
   margin-top: 12px;
@@ -93,6 +93,7 @@
 .timeline .content {
   background-size: cover;
   min-height: 200px;
+  color: #fafafa;
 
 }
 
