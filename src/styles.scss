@@ -3,3 +3,7 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+.ng-bar-placeholder {
+  height: 5px !important; // default: 2px, thick: 3px
+}
+

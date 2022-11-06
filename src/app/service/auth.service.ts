@@ -2,22 +2,27 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {Toaster} from './toaster';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService extends Toaster {
 
   api = `${environment.api}/user`;
   name: string = '';
 
   constructor(private http: HttpClient, private router: Router) {
-
+    super();
   }
 
   login(data: any): void {
-    this.http.post<string>(`${this.api}/authenticate`, data).subscribe(token => {
+    this.http.post<any>(`${this.api}/authenticate`, data).subscribe(token => {
       this.setSession(token);
+      this.toast.fire({
+        icon: 'success',
+        title: `Hallo ${token.user.username}`,
+      })
       this.router.navigate(['/']);
     });
   }
@@ -42,6 +47,10 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires');
     localStorage.removeItem('refresh_token');
+    this.toast.fire({
+      icon: 'success',
+      title: `Hoffentlich bis bald`,
+    })
     this.router.navigate(['login']);
   }
 
