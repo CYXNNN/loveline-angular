@@ -17,6 +17,7 @@ import {SecurePipe} from './pipes/secureimage.pipe';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
     InputComponent,
     SecurePipe,
     CalendarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

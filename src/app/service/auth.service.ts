@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -10,23 +11,38 @@ export class AuthService {
   api = `${environment.api}/user`;
   name: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
   login(data: any): void {
-    this.http.post<string>(`${this.api}/authenticate`, data).subscribe(token => this.setSession(token));
+    this.http.post<string>(`${this.api}/authenticate`, data).subscribe(token => {
+      this.setSession(token);
+      this.router.navigate(['/']);
+    });
+  }
+
+  refresh(): void {
+    this.http.post<string>(`${this.api}/refreshtoken`, {refreshToken: localStorage.getItem('refresh_token')})
+      .subscribe(token => this.updateSession(token));
+  }
+
+  private updateSession(token: any) {
+    localStorage.setItem('id_token', token.token);
+    localStorage.setItem('expires', token.expiresAt);
+    localStorage.setItem('refresh_token', token.refreshToken);
   }
 
   private setSession(token: any) {
     this.name = token.name;
-    localStorage.setItem('id_token', token.token);
-    localStorage.setItem('expires', token.expiresAt);
+    this.updateSession(token);
   }
 
   logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires');
+    localStorage.removeItem('refresh_token');
+    this.router.navigate(['login']);
   }
 
   public isLoggedIn(): boolean {

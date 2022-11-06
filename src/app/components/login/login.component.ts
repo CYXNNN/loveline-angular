@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class NavbarComponent {
+export class LoginComponent {
 
   form: FormGroup;
 
@@ -30,6 +30,5 @@ export class NavbarComponent {
   logout = () => this.auth.logout();
 
   loggedIn = () => this.auth.isLoggedIn();
-  name = () => this.auth.name;
 
 }

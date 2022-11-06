@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Login</h4>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form" (submit)="login()">
+
+    <app-input [form]="form" label="Username" name="username" placeholder="Username"></app-input>
+    <app-input [form]="form" label="Password" name="password" placeholder="****"></app-input>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" [disabled]="form.invalid">Login</button>
+    </div>
+  </form>
+</div>
