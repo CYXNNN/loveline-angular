@@ -1,0 +1,92 @@
+.app-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.app-fab button {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  color: white;
+  background-color: #8f0303;
+  border: none;
+  box-shadow: 0px 0px 10px black;
+}
+
+
+.app-fab button:hover {
+  background-color: #600000;
+}
+
+.timeline {
+  border-left: 4px solid #8f0303;
+  margin-left: 10px;
+}
+
+.year-changer-holder {
+  margin: 20px auto;
+  width: 100px;
+}
+
+.year-changer {
+  background-color: #8f0303;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.timeline .content {
+  background-color: #ffe2e2;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #b19c9c;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.timeline .holder {
+  padding-left: 26px;
+}
+
+.timeline .holder::before {
+  content: '';
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ffe2e2;
+  position: absolute;
+  margin-left: -10px;
+  margin-top: 12px;
+}
+
+.timeline .icon-holder::before {
+  content: '';
+  border: 3px solid #8f0303;
+  background-color: #ffe2e2;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: -18px;
+  margin-top: 6px;
+  width: 31px;
+  height: 31px;
+}
+
+.timeline .icon-holder .icon {
+  position: absolute;
+  margin-left: -10px;
+  padding-top: 10px;
+}
+
+.timeline .description {
+  text-align: justify;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.timeline .description img {
+  float: right;
+}
+

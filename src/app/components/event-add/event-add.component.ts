@@ -1,16 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 import {EventType} from '../../model/EventType';
 import {LocalFile} from '../../model/LocalFile';
 import {EventService} from '../../service/event.service';
+import {Toaster} from '../../service/toaster';
 
 @Component({
   selector: 'app-event-add',
   templateUrl: './event-add.component.html',
   styleUrls: ['./event-add.component.css'],
 })
-export class EventAddComponent implements OnInit {
+export class EventAddComponent extends Toaster implements OnInit {
 
   form: FormGroup;
   eventType = EventType;
@@ -18,7 +19,8 @@ export class EventAddComponent implements OnInit {
   files: FileList | undefined;
   fileUrls: LocalFile[] = [];
 
-  constructor(private builder: FormBuilder, private service: EventService, private sanitize: DomSanitizer) {
+  constructor(private builder: FormBuilder, private service: EventService, private router: Router) {
+    super();
     this.form = this.builder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -44,7 +46,13 @@ export class EventAddComponent implements OnInit {
       const formData = new FormData();
       Array.from(this.files).forEach(file => formData.append('files', file));
 
-      this.service.postImage(res.id, formData);
+      this.service.postImage(res.id, formData).subscribe(res => {
+        this.toast.fire({
+          title: 'Erinnerung erstellt',
+          icon: 'success',
+        });
+        this.router.navigate(['/timeline']);
+      });
     });
   }
 

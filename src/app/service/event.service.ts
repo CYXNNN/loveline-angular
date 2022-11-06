@@ -18,13 +18,11 @@ export class EventService {
     return this.http.post<any>(`${this.api}`, data);
   }
 
-  public postImage(eventId: string, data: FormData): void {
-    this.http.post<any>(`${this.api}/${eventId}`, data, {
+  public postImage(eventId: string, data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.api}/${eventId}`, data, {
       reportProgress: true,
       responseType: 'json',
-    }).subscribe(res => {
-      // FIXME
-    });
+    })
   }
 
   public get(): Observable<any[]> {

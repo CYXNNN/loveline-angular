@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {ServiceWorkerModule} from '@angular/service-worker';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgProgressModule} from 'ngx-progressbar';
 import {NgProgressHttpModule} from 'ngx-progressbar/http';
@@ -53,6 +54,7 @@ import {SecurePipe} from './pipes/secureimage.pipe';
       spinner: false,
     }),
     NgProgressHttpModule,
+    FontAwesomeModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

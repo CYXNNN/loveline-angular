@@ -1,4 +1,17 @@
 import {Component} from '@angular/core';
+import {
+  faBaby,
+  faBabyCarriage,
+  faCakeCandles,
+  faChurch,
+  faCirclePlus,
+  faMartiniGlass,
+  faPersonHiking,
+  faPlane,
+  faRing,
+  faStar,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
 import {Observable} from 'rxjs';
 import {EventService} from '../../service/event.service';
 
@@ -11,6 +24,8 @@ export class TimelineComponent {
 
   data$: Observable<any[]>;
   currentYear: number = new Date().getFullYear();
+
+  faAdd = faCirclePlus;
 
   constructor(private service: EventService) {
     this.data$ = service.get();
@@ -34,11 +49,28 @@ export class TimelineComponent {
     return false;
   };
 
-  icon(type: string): string {
+  icon(type: string): IconDefinition {
     switch (type) {
 
+      case 'anniversary':
+        return faCakeCandles;
+      case 'holiday':
+        return faPlane;
+      case 'trip':
+        return faPersonHiking;
+      case 'party':
+        return faMartiniGlass;
+      case 'engagement':
+        return faRing;
+      case 'marriage':
+        return faChurch;
+      case 'newborn':
+        return faBabyCarriage;
+      case 'children':
+        return faBaby;
+
       default:
-        return 'hi';
+        return faStar;
     }
   }
 
