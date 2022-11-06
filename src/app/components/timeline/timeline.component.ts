@@ -74,4 +74,6 @@ export class TimelineComponent {
     }
   }
 
+  buildId = (id: string) => `event_${id}`;
+
 }

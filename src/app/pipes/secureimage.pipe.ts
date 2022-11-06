@@ -9,31 +9,38 @@ import {environment} from '../../environments/environment';
 export class SecurePipe implements PipeTransform {
 
   api = `${environment.api}/event`;
+  el: any;
 
   constructor(private http: HttpClient) {
   }
 
-  transform(url: string) {
+  transform(value: string, arg1: any) {
+    this.el = document.getElementById(arg1);
 
-    return new Observable<string>((observer: any) => {
+    const x = new Observable<string>((observer: any) => {
       // This is a tiny blank image
-      observer.next('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+      //observer.next('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 
       // The next and error callbacks from the observer
       const {next, error} = observer;
-
-      this.http.get(`${this.api}/${url}`, {responseType: 'blob'}).subscribe(response => {
+      this.http.get(`${this.api}/${value}`, {responseType: 'blob'}).subscribe(response => {
         const reader = new FileReader();
         reader.readAsDataURL(response);
+
         reader.onloadend = function () {
           observer.next(reader.result);
         };
       });
-
       return {
         unsubscribe() {
         },
       };
     });
+    x.subscribe(next => {
+      debugger;
+      this.el.style.backgroundImage =
+        `linear-gradient(to left, rgba(245, 246, 252, 0.72), rgb(255 226 226)), url(${next})`;
+
+    })
   }
 }

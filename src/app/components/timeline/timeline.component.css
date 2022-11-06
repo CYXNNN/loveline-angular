@@ -82,11 +82,14 @@
 
 .timeline .description {
   text-align: justify;
-  max-height: 150px;
+  width: 60%;
+  max-height: 250px;
   overflow: hidden;
 }
 
-.timeline .description img {
-  float: right;
+.timeline .content {
+  background-size: cover;
+  min-height: 200px;
+
 }
 
