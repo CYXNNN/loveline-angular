@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   icon = faHeart;
   togetherSince = new Date('04/04/2022');
   days = 0;
+  currentBg = 1;
 
   constructor(private service: CalendarService, private event: EventService) {
     this.upcoming = this.service.getNext(5);
@@ -23,9 +24,19 @@ export class HomeComponent implements OnInit {
 
     const diff = new Date().getTime() - this.togetherSince.getTime();
     this.days = Math.round(diff / (1000 * 3600 * 24));
+
+    setInterval(() => {
+      if (this.currentBg == 4) {
+        this.currentBg = 1;
+      } else {
+        this.currentBg = this.currentBg + 1;
+      }
+    }, 4000);
   }
 
   ngOnInit(): void {
   }
+
+  bgClass = () => `bg${this.currentBg}`
 
 }

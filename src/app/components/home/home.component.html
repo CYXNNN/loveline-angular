@@ -1,25 +1,34 @@
-<h2 class="title" style="text-align: center">Hallo Janine
-  <fa-icon [icon]="icon"></fa-icon>
-</h2>
+<div class="hello-wrapper">
+  <div id="hello-container" [ngClass]="bgClass()">
 
-<p style="text-align: center">Du bist seit <strong>{{this.days}}</strong> Tagen mit Christian zusammen.</p>
 
-<div class="card-container upcoming-events">
+    <h2 class=" title" style="padding-top: 200px !important; text-align: center">Hallo Janine
+      <fa-icon [icon]="icon"></fa-icon>
+    </h2>
 
-  <h3>Freust du dich?</h3>
+    <p style="text-align: center">Du bist seit <strong>{{this.days}}</strong> Tagen mit Christian zusammen.</p>
 
-  <div *ngIf="(upcoming | async); else noAppointments">
-    <div *ngFor="let item of upcoming | async">
-      <h4>{{item.title}}</h4>
-    </div>
   </div>
 </div>
+<div id="main-content">
+  <div class="card-container upcoming-events">
 
-<div class="card-container random-memory">
-  <h3>Weisst du noch?</h3>
+    <h3>Freust du dich?</h3>
 
-  <div *ngFor="let data of random | async">
-    <app-event-content [data]="data"></app-event-content>
+    <div *ngIf="(upcoming | async); else noAppointments">
+      <div *ngFor="let item of upcoming | async">
+        <h4>{{item.title}}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container random-memory">
+    <h3>Weisst du noch?</h3>
+
+    <div *ngFor="let data of random | async">
+      <app-event-content [data]="data"></app-event-content>
+
+    </div>
 
   </div>
 
