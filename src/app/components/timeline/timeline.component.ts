@@ -35,8 +35,6 @@ export class TimelineComponent {
 
   }
 
-  image = (data: any) => `${data.id}/thumbnail.${data.elements[0]?.filename}`
-
   alignment = (idx: number) => idx % 2 == 0 ? 'left' : 'right';
   identify = (index: number, item: any) => item.id;
   yearChanged = (date: any) => {
@@ -73,7 +71,5 @@ export class TimelineComponent {
         return faStar;
     }
   }
-
-  buildId = (id: string) => `event_${id}`;
 
 }

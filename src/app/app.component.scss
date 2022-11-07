@@ -1,0 +1,21 @@
+.footer {
+  text-align: center;
+  color: #b19c9c;
+}
+
+#wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -24px;
+}
+
+#footer {
+  height: 24px;
+}
+
+#footer p {
+  text-align: center;
+  margin-bottom: 0;
+}

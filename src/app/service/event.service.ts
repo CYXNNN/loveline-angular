@@ -29,8 +29,12 @@ export class EventService {
     return this.http.get<any[]>(`${this.api}`);
   }
 
+  public getRandom(): Observable<any> {
+    return this.http.get<any[]>(`${this.api}/random`);
+  }
+
   public getImage(data: any): any {
-    return this.http.get<any>(`${this.api}/event/${data}`)
+    return this.http.get<any[]>(`${this.api}/event/${data}`)
   }
 
 }

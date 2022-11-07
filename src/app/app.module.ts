@@ -21,6 +21,8 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {TimelineComponent} from './components/timeline/timeline.component';
 import {AuthInterceptor} from './interceptor/auth.interceptor';
 import {SecurePipe} from './pipes/secureimage.pipe';
+import { CalendarAddComponent } from './components/calendar-add/calendar-add.component';
+import { EventContentComponent } from './components/event-content/event-content.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import {SecurePipe} from './pipes/secureimage.pipe';
     SecurePipe,
     CalendarComponent,
     LoginComponent,
+    CalendarAddComponent,
+    EventContentComponent,
   ],
   imports: [
     BrowserModule,

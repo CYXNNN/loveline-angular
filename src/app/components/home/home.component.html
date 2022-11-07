@@ -1,5 +1,31 @@
-<div class="callout">
-  <h2>Welcome</h2>
-  <p>if you dont have an account you wont see anything.</p>
+<h2 class="title" style="text-align: center">Hallo Janine
+  <fa-icon [icon]="icon"></fa-icon>
+</h2>
+
+<p style="text-align: center">Du bist seit <strong>{{this.days}}</strong> Tagen mit Christian zusammen.</p>
+
+<div class="card-container upcoming-events">
+
+  <h3>Freust du dich?</h3>
+
+  <div *ngIf="(upcoming | async); else noAppointments">
+    <div *ngFor="let item of upcoming | async">
+      <h4>{{item.title}}</h4>
+    </div>
+  </div>
 </div>
 
+<div class="card-container random-memory">
+  <h3>Weisst du noch?</h3>
+
+  <div *ngFor="let data of random | async">
+    <app-event-content [data]="data"></app-event-content>
+
+  </div>
+
+</div>
+
+
+<ng-template #noAppointments>
+  <p><i>Keine Termine gefunden :-(</i></p>
+</ng-template>

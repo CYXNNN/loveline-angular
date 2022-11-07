@@ -1,17 +1,23 @@
-<section id="nav">
-  <app-navbar></app-navbar>
-</section>
+<div id="wrapper">
 
-<main id="main">
-  <ng-progress></ng-progress>
-  <div class="container-fluid">
-    <router-outlet></router-outlet>
+  <section id="nav">
+    <app-navbar></app-navbar>
+  </section>
+
+  <main id="main">
+    <ng-progress></ng-progress>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+
+<footer id="footer">
+  <div class="footer">
+    <p>&copy; made with
+      <fa-icon [icon]="icon"></fa-icon>
+      by <a target="_blank" href="https://github.com/CYXNNN">CYXNNN</a>
+    </p>
   </div>
-</main>
-
-<section id="footer">
-
-
-</section>
-
-
+</footer>

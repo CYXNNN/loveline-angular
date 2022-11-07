@@ -1,11 +1,10 @@
-<div class="mb-3" [formGroup]="form">
+<div class="form-floating mb-3" [formGroup]="form">
   <label [for]="name">{{label}}</label>
   <div class="input-group">
     <input
-      [type]="name"
+      [type]="type"
       [id]="name"
       class="form-control"
-      [placeholder]="placeholder"
       [name]="name"
       [formControlName]="name"
     />

@@ -1,0 +1,25 @@
+.content {
+  background-color: #ffe2e2;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #b19c9c;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.description {
+  text-align: justify;
+  width: 60%;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.content {
+  background-size: cover;
+  min-height: 200px;
+  color: #fafafa;
+
+}
+
+.content h2 {
+  text-transform: uppercase;
+}

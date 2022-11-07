@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CalendarAddComponent} from './components/calendar-add/calendar-add.component';
 import {CalendarComponent} from './components/calendar/calendar.component';
 import {EventAddComponent} from './components/event-add/event-add.component';
 import {HomeComponent} from './components/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'event/add', component: EventAddComponent, canActivate: [AuthGuardService]},
   {path: 'timeline', component: TimelineComponent, canActivate: [AuthGuardService]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardService]},
+  {path: 'calendar/add', component: CalendarAddComponent, canActivate: [AuthGuardService]},
 
   {path: '', component: HomeComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: ''},

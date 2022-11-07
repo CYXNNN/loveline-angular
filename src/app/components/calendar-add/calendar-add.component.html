@@ -1,0 +1,33 @@
+<h2 class="title">Termin erfassen</h2>
+<div>
+  <form [formGroup]="form" (submit)="add()">
+
+    <app-input [form]="form" label="Title" name="title" placeholder="Titel"></app-input>
+    <app-input [form]="form" label="Beschrieb" name="description" placeholder="Beschrieb"></app-input>
+    <app-input [form]="form" label="Ort" name="location" placeholder="Ort"></app-input>
+    <app-input [form]="form" type="datetime-local" label="Von" name="start" placeholder="Von"></app-input>
+    <app-input [form]="form" type="datetime-local" label="Bis" name="end" placeholder="Bis"></app-input>
+
+
+    <div class="form-group">
+      <label for="category">Typ</label>
+      <select
+        id="category"
+        class="form-control"
+        formControlName="category">
+        <option *ngFor="let enum of categoryType | keyvalue" [ngValue]="enum.key">
+          {{ enum.value }}
+        </option>
+      </select>
+    </div>
+
+
+    <app-input [form]="form" type="checkbox" label="Ganztägig" name="allDay"></app-input>
+
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-info" [disabled]="form.invalid">Speichern</button>
+    </div>
+  </form>
+</div>
+
