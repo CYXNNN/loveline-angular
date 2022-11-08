@@ -15,9 +15,9 @@
 
     <h3>Freust du dich?</h3>
 
-    <div *ngIf="(upcoming | async); else noAppointments">
+    <div *ngIf="(upcoming | async)?.length; else noAppointments">
       <div *ngFor="let item of upcoming | async">
-        <h4>{{item.title}}</h4>
+        <app-event-row [appointment]="item"></app-event-row>
       </div>
     </div>
   </div>

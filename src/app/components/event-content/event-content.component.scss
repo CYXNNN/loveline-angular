@@ -4,6 +4,7 @@
   box-shadow: 1px 1px 1px #b19c9c;
   padding: 5px 10px;
   margin: 10px 0;
+  font-family: Ubuntu;
 }
 
 .description {
@@ -13,13 +14,18 @@
   overflow: hidden;
 }
 
+h6, .description {
+  font-family: "Ubuntu Light";
+}
+
 .content {
   background-size: cover;
   min-height: 200px;
-  color: #fafafa;
+  color: black;
 
 }
 
 .content h2 {
   text-transform: uppercase;
+  color: #ef224b;
 }

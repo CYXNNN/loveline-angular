@@ -1,9 +1,8 @@
-.card-container {
+.card-container + .card-container {
   margin-top: 50px;
+  color: #ffe8d5;
 }
 
-.hello-wrapper {
-}
 
 #hello-container {
   min-height: 300px;
@@ -32,4 +31,5 @@
 
 #main-content {
   padding: 20px;
+  border-top: 1px solid #ffaebe;
 }

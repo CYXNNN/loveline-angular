@@ -23,6 +23,7 @@ import {AuthInterceptor} from './interceptor/auth.interceptor';
 import {SecurePipe} from './pipes/secureimage.pipe';
 import { CalendarAddComponent } from './components/calendar-add/calendar-add.component';
 import { EventContentComponent } from './components/event-content/event-content.component';
+import { EventRowComponent } from './components/event-row/event-row.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EventContentComponent } from './components/event-content/event-content.
     LoginComponent,
     CalendarAddComponent,
     EventContentComponent,
+    EventRowComponent,
   ],
   imports: [
     BrowserModule,

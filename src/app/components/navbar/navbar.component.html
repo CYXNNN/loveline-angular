@@ -24,8 +24,7 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <a *ngIf="loggedIn()" class="btn btn-outline-primary" (click)="logout()">Logout</a>
-        <a *ngIf="!loggedIn()" class="btn btn-outline-primary" routerLink="/login">Login</a>
+        <a *ngIf="loggedIn()" class="btn btn-outline-secondary" (click)="logout()">Logout</a>
       </form>
     </div>
   </div>

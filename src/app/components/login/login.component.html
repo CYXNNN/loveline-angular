@@ -3,10 +3,10 @@
     <form [formGroup]="form" (submit)="login()">
 
       <app-input [form]="form" label="Username" name="username" placeholder="Username"></app-input>
-      <app-input [form]="form" label="Password" name="password" placeholder="****"></app-input>
+      <app-input [form]="form" type="password" label="Password" name="password" placeholder="****"></app-input>
 
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="form.invalid">Login</button>
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid">Login</button>
       </div>
     </form>
   </div>

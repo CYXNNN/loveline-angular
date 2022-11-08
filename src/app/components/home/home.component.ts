@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {Observable} from 'rxjs';
+import {Appointment} from '../../model/Appointment';
 import {CalendarService} from '../../service/calendar.service';
 import {EventService} from '../../service/event.service';
 
@@ -11,12 +12,12 @@ import {EventService} from '../../service/event.service';
 })
 export class HomeComponent implements OnInit {
 
-  upcoming: Observable<any[]>
+  upcoming: Observable<Appointment[]>
   random: Observable<any[]>
   icon = faHeart;
   togetherSince = new Date('04/04/2022');
   days = 0;
-  currentBg = 1;
+  currentBg = Math.floor(Math.random() * 3) + 1;
 
   constructor(private service: CalendarService, private event: EventService) {
     this.upcoming = this.service.getNext(5);
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
       } else {
         this.currentBg = this.currentBg + 1;
       }
-    }, 4000);
+    }, 5000);
   }
 
   ngOnInit(): void {
