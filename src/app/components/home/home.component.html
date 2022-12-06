@@ -25,8 +25,8 @@
   <div class="card-container random-memory">
     <h3>Weisst du noch?</h3>
 
-    <div *ngFor="let data of random | async">
-      <app-event-content [data]="data"></app-event-content>
+    <div *ngIf="randomValue">
+      <app-event-content [data]="randomValue"></app-event-content>
 
     </div>
 

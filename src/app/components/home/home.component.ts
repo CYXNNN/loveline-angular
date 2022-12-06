@@ -13,7 +13,8 @@ import {EventService} from '../../service/event.service';
 export class HomeComponent implements OnInit {
 
   upcoming: Observable<Appointment[]>
-  random: Observable<any[]>
+
+  randomValue: any;
   icon = faHeart;
   togetherSince = new Date('04/04/2022');
   days = 0;
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private service: CalendarService, private event: EventService) {
     this.upcoming = this.service.getNext(5);
-    this.random = this.event.getRandom();
+    this.event.getRandom().subscribe(val => this.randomValue = val);
 
     const diff = new Date().getTime() - this.togetherSince.getTime();
     this.days = Math.round(diff / (1000 * 3600 * 24));
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   bgClass = () => `bg${this.currentBg}`

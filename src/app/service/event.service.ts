@@ -30,7 +30,7 @@ export class EventService {
   }
 
   public getRandom(): Observable<any> {
-    return this.http.get<any[]>(`${this.api}/random`);
+    return this.http.get<any>(`${this.api}/random`);
   }
 
   public getImage(data: any): any {
